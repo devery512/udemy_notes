@@ -75,4 +75,43 @@ console.log(what_do_you_do('retired','Mark'));
 	let isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer';
 	console.log(isDesigner);
 
+/*Objects and Properties*/
+	// Object Literal
+	let john = {
+		first_name: 'John',
+		last_name: 'Hopkins',
+		birth_year: 1990,
+		family: ['Jane', 'Mark', 'Bob', 'Emily'],
+		job: 'teacher',
+		married: false
+	};
+	console.log(john.first_name);
+	console.log(john['last_name']);
+	let x = 'birth_year';
+	console.log(john[x]);
+
+	john.job = 'designer';
+	john['married'] = true;
+	console.log(john);
+	// New Object Syntax
+	let jane = new Object();
+	jane.name = 'Jane';
+	jane.birth_year = 1992;
+	jane['last_name'] = 'Smith';
+	console.log(jane);
+
+/*Objects and Methods*/
+	let john = {
+		first_name: 'John',
+		last_name: 'Hopkins',
+		birth_year: 1990,
+		family: ['Jane', 'Mark', 'Bob', 'Emily'],
+		job: 'teacher',
+		married: false,
+		calculate_age: function(birth_year){
+			this.age = 2019 - this.birth_year;
+		}
+	};
+	console.log(john.calculate_age());
+	john.age = john.calculate_age();
 
