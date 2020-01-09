@@ -35,11 +35,10 @@ Scoping In JavaScript
 The 'this' Variable
 	Regular function call:
 		The 'this' keyword points at the global object, (the window object, in the browser)
-
-
-
+	Method call:
+		The 'this' variable points to the object that is calling the method.
+	**THE 'this' KEYWORD IS NOT ASSIGNED A VALUE UNTIL A FUNCTION WHERE IT IS DEFINED IS ACTUALLY CALLED.**
 */
-
 
 // HOISTING
 
@@ -72,8 +71,7 @@ The 'this' Variable
 
 
 // Scoping And The Scope Chain
-	/*
-	EXECUTION STACK (Order in which functions are called) VS SCOPE CHAIN (Order in which functions are written lexically)
+	// EXECUTION STACK (Order in which functions are called) VS SCOPE CHAIN (Order in which functions are written lexically)
 		var a = 'Hello!';
 		first();
 
@@ -92,8 +90,28 @@ The 'this' Variable
 			console.log( a + b + c + d );
 		}
 
-	*/
-
 // The 'this' Keyword
-	
+	calculate_age(1992);
+
+	function calculate_age( year ){
+		console.log( 2020 - year );
+		console.log( this );
+	}
+
+	let john = {
+		name: 'John',
+		birth_year: 1990,
+		calculate_age: function(){
+			console.log( this );
+			console.log( 2020 - this.birth_year );
+
+			function inner_function(){
+				console.log( this );
+			}
+			inner_function();
+		}
+	}
+
+	john.calculate_age();
+
 
