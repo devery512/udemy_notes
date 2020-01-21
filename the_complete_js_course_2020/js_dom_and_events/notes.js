@@ -11,10 +11,18 @@ THE DOCUMENT OBJECT MODEL
 
 */
 
+/* EVENTS
 
+	Events:
+		Notifications that are sent to notify the code that something happened on the webpage;
+		
+	Examples:
+		Clicking a button, resizing a window, scrolling down or pressing a key;
 
+	Event listener:
+		A function that performs an action based on a certain evet. It waits for a specific event to happen.
 
-
+*/
 
 
 
