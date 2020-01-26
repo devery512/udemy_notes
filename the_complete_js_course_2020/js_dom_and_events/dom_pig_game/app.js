@@ -12,9 +12,11 @@ GAME RULES:
 
 let scores, round_score, active_player;
 init_game();
-
+roll_dice();
+hold_btn();
 
 // Roll Dice
+function roll_dice(){
 	document.querySelector('.btn-roll').addEventListener('click', function() {
 		// 1. Random number
 			let	dice = Math.floor(Math.random() * 6) + 1;
@@ -34,9 +36,10 @@ init_game();
 				next_player();
 			}
 	});
-
+};
 
 // Hold Button
+function hold_btn() {
 	document.querySelector('.btn-hold').addEventListener('click', function(){
 		// Add current score to global score
 		scores[active_player] += round_score;
@@ -53,6 +56,8 @@ init_game();
 			next_player();
 		}
 	});
+};
+	
 // Next Player
 	function next_player(){
 		// ternary way of writing if else statment.
@@ -92,8 +97,6 @@ function init_game(){
 	document.getElementById('current-1').textContent = '0';
 	document.getElementById(`name-0`).textContent = 'Player 1';
 	document.getElementById(`name-1`).textContent = 'Player 2';
-
-
 };
 
 
