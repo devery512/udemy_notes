@@ -7,10 +7,7 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 */
 
-//document.querySelector(`#current-${active_player}`).textContent = dice;
-// document.querySelector(`#current-${active_player}`).innerHTMl = '<em>' + dice +'</em>';
-
-let scores, round_score, active_player;
+let scores, round_score, active_player, game_playing;
 init_game();
 roll_dice();
 hold_btn();
@@ -18,6 +15,9 @@ hold_btn();
 // Roll Dice
 function roll_dice(){
 	document.querySelector('.btn-roll').addEventListener('click', function() {
+		if (game_playing){
+
+		}
 		// 1. Random number
 			let	dice = Math.floor(Math.random() * 6) + 1;
 		// 2. Display the reults
@@ -61,7 +61,7 @@ function hold_btn() {
 // Next Player
 	function next_player(){
 		// ternary way of writing if else statment.
-				active_player === 0 ? active_player = 1 : active_player = 0;
+				active_player == 0 ? active_player = 1 : active_player = 0;
 				// old school way of writing the if else statement.
 					/* if (active_player === 0){
 						active_player = 0;
@@ -91,18 +91,25 @@ function init_game(){
 	active_player = 0;
 
 	document.querySelector('.dice').style.display = 'none';
+
 	document.getElementById('score-0').textContent = '0';
-	document.getElementById('current-0').textContent = '0';
 	document.getElementById('score-1').textContent = '0';
+	document.getElementById('current-0').textContent = '0';
 	document.getElementById('current-1').textContent = '0';
 	document.getElementById(`name-0`).textContent = 'Player 1';
 	document.getElementById(`name-1`).textContent = 'Player 2';
+
+	document.querySelector(`.player-0-panel`).classList.add('active');
+	document.querySelector(`.player-1-panel`).classList.remove('active');
 };
 
-
-
-
-
+/*
+YOUR 3 CHALLENGES
+Change the game to follow these rules:
+1. A player looses his ENTIRE score when he rols two 6 in a row. After that, it's the next player's turn. (Hint: Always save the previous dice roll in a separate variable)
+2. Add an input field to the HTML where players can set the winning score, so that they can change the predefined score of 100. (Hint: you can read that value with the .value property in JavaScript. This is a good oportunity to use google to figure this out)
+3. Add another dice to the game, so that there are two dices now. The player looses his current score when one of them is a 1. (Hint: you will need CSS to position the second dice, so take a look at the CSS code for the first one.)
+*/ 
 
 
 
